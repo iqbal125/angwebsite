@@ -1,0 +1,12 @@
+
+  <h2> Cart</h2>
+  <div *ngFor="let shopproduct of shopproducts | async">
+  <div><label>name: </label> {{ shopproduct.name }}</div>
+  <div><label>price: </label> {{ shopproduct.price }}</div>
+  <br>
+  <br>
+</div>
+
+
+
+<button (click)="showcart()">show cart</button>

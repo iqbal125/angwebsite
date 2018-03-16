@@ -1,0 +1,33 @@
+<form (ngSubmit)="finduser(f)" #f="ngForm" class="form-horizontal" id="user-data">
+
+  <input type="text" ngModel name="username">
+  <br>
+  <!-- <input type="text" ngmodel name="messagetitle">
+  <br>
+  <textarea ngModel name="messagebody" id="" cols="30" rows="10"></textarea>
+  <br> -->
+  <br>
+  <button>Select User</button>
+</form>
+
+
+
+<!--
+<div *ngFor="let user of user | async">
+  {{ user.displayName }}
+  <button (click)="sendmessage(user.uid)">Select User</button>
+</div> -->
+
+
+
+
+<div *ngFor="let user of user | async">
+  {{ user.displayName }}
+<br>
+  <input type="text"  #title name="title">
+  <br>
+  <textarea ngModel #body name="messagebody" id="" cols="30" rows="10"></textarea>
+  <br>
+  <br>
+    <button (click)="sendmessage(user.uid, title.value, body.value)">Sendmessage</button>
+</div>

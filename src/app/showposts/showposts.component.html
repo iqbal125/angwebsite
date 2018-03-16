@@ -1,0 +1,18 @@
+
+
+
+
+            <div *ngFor="let post of posts | async">
+              <h2> Posts</h2>
+              <div><label>title: </label><a routerLink='/posts/{{ post.id }}'>{{post.title}}</a></div>
+              <div>
+                <label>body: {{ post.body }}</label>
+              </div>
+            </div>
+
+
+
+              <button (click)="showposts();" class="btn btn-primary"> Submit </button>
+
+            <br>
+            <br>

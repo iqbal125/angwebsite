@@ -16,7 +16,7 @@ import { AuthlogService } from '../shared/authlog.service';
 export class SendmessageComponent  {
 
   private userDoc: AngularFirestoreCollection<any>;
-  user: Observable<[any]>;
+  user: Observable<any>;
 
 
   username: any = null;

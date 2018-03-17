@@ -7,12 +7,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { environment } from './../environments/environment';
 import * as firebase from 'firebase';
 
-// import { AngularFireModule } from 'angularfire2';
-// import { AngularFirestoreModule } from 'angularfire2/firestore';
-// import { AngularFireAuthModule } from 'angularfire2/auth';
-// import { AngularFireStorageModule } from 'angularfire2/storage';
-//
-// import {MatButtonModule} from '@angular/material';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material';
 
 import { AuthlogService } from './shared/authlog.service';
 
@@ -86,11 +87,12 @@ const appRoutes: Routes = [
     HttpModule,
     FormsModule,
     HttpClientModule,
-    // AngularFireModule.initializeApp(environment.firebase),
-    // AngularFirestoreModule,
-    // AngularFireAuthModule,
-    // AngularFireStorageModule,
-    // MatButtonModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    AngularFireStorageModule,
+    MatButtonModule,
+    // BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes)
   ],
 

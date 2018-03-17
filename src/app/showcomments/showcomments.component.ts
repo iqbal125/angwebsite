@@ -27,7 +27,7 @@ export class ShowcommentsComponent  {
   posts: Observable<any>;
 
   private commentDocs: AngularFirestoreCollection<any>;
-  comments: Observable<[any]>;
+  comments: Observable<any>;
 
 
   Routeid: any = null;

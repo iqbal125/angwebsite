@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
-import { AuthlogService } from '../shared/authlog.service';
-import { AngularFireAuth } from 'angularfire2/auth';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
+import { AuthlogService } from '../shared/authlog.service';
+
 
 
 
@@ -33,16 +33,11 @@ export class ShowcommentsComponent  {
   Routeid: any = null;
 
 
-  authState: any = null;
-
-
-  constructor(private afAuth: AngularFireAuth,
+  constructor(private AuthlogService: AuthlogService,
               private router: Router,
               private afs: AngularFirestore,
               private route: ActivatedRoute) {
-              this.afAuth.authState.subscribe((auth) => {
-              this.authState = auth
-            });
+
           }
 
           getpost () {
@@ -78,9 +73,9 @@ export class ShowcommentsComponent  {
           addcomment(form: NgForm) {
             this.Routeid = this.route.snapshot.params['pid']
             firebase.firestore().collection('posts').doc(this.Routeid).collection('comments').add({
-              uid: this.authState.uid,
+              uid: this.AuthlogService.authState.uid,
               pid: this.route.snapshot.params['pid'],
-              comment: form.value.comment,
+              comment: form.value.comment
             })
           }
 

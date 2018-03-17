@@ -1,11 +1,8 @@
-
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable'
 import { map } from 'rxjs/operators';
-
 import { AngularFireAuth } from 'angularfire2/auth';
-
 import * as firebase from 'firebase';
 import { Router } from '@angular/router';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
@@ -17,13 +14,22 @@ import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firesto
 @Injectable()
 export class AuthlogService {
 
-
+  authState: any = null;
 
   constructor(private afAuth: AngularFireAuth,
-                private afs: AngularFirestore,
-               private router: Router) {
+              private afs: AngularFirestore,
+              private router: Router) {
+                 this.afAuth.authState.subscribe((auth) => {
+                 this.authState = auth
+               });
+              }
 
- }
+
+  authenticated() {
+    if (this.authState) {
+      return true;
+    }
+  }
 
  signup(email: string, password: string) {
   this.afAuth

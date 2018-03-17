@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
-import { AuthlogService } from '../shared/authlog.service';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
-import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
+import { AuthlogService } from '../shared/authlog.service';
 
 
 
@@ -20,20 +18,17 @@ export class SendmessageComponent  {
   private userDoc: AngularFirestoreCollection<any>;
   user: Observable<[any]>;
 
-  authState: any = null;
 
   username: any = null;
   messagetitle: any = null;
   messagebody: any = null;
 
 
-  constructor(private afAuth: AngularFireAuth,
+  constructor(private AuthlogService: AuthlogService,
               private router: Router,
-              private afs: AngularFirestore,
-              private route: ActivatedRoute) {
-              this.afAuth.authState.subscribe((auth) => {
-              this.authState = auth
-            });
+              private afs: AngularFirestore
+            ) {
+
           }
 
 

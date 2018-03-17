@@ -1,13 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
 import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
-import { AuthlogService } from '../shared/authlog.service';
-import { AngularFireAuth } from 'angularfire2/auth';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
-
-
-
+import { AuthlogService } from '../shared/authlog.service';
 
 
 
@@ -19,21 +15,15 @@ import { NgForm } from '@angular/forms';
 
 
 
-
 export class UserComponent {
 
-
-
-  authState: any = null;
   Routeid: any = null;
 
-  constructor(private afAuth: AngularFireAuth,
+  constructor(private AuthlogService: AuthlogService,
               private router: Router,
               private afs: AngularFirestore,
               private route: ActivatedRoute) {
-              this.afAuth.authState.subscribe((auth) => {
-              this.authState = auth
-            });
+
           }
 
 
@@ -42,8 +32,8 @@ export class UserComponent {
       this.Routeid = this.route.snapshot.params['uid']
       console.log(this.Routeid)
       firebase.firestore().collection('users').doc(this.Routeid).set({
-        uid: this.authState.uid,
-        email: this.authState['email'],
+        uid: this.AuthlogService.authState.uid,
+        email: this.AuthlogService.authState['email'],
         displayName: form.value.username,
         occupation: form.value.occupation
       }, {merge: true}).then(() => {
@@ -51,9 +41,5 @@ export class UserComponent {
     });
 
     }
-
-
-
-
 
 }

@@ -1,12 +1,12 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">WebSiteName</a>
+      <a class="navbar-brand" routerLink="/">WebSiteName</a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="#">Store</a></li>
-      <li><a href="#">My Library</a></li>
-      <li><a href="#">Forum</a></li>
+      <li><a routerLink="/store">Store</a></li>
+      <li><a routerLink="/showposts">Forum</a></li>
+      <li><a routerLink="/account">Account</a></li>
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
@@ -16,7 +16,7 @@
 
 
         <li><a style="cursor: pointer;" (click)="OnLogout()"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
-  
+
     </ul>
   </div>
 </nav>

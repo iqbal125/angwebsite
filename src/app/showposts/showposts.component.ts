@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
 import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
-import { AuthlogService } from '../shared/authlog.service';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { Router, ActivatedRoute } from '@angular/router';
-import { NgForm } from '@angular/forms';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
+import { AuthlogService } from '../shared/authlog.service';
 
 
 
@@ -29,27 +26,21 @@ export interface PostID extends Post {
 })
 export class ShowpostsComponent  {
 
-    authState: any = null;
 
 
     private postDoc: AngularFirestoreCollection<any>;
     posts: Observable<any>;
 
 
-    constructor(private afAuth: AngularFireAuth,
-                private router: Router,
-                private afs: AngularFirestore,
-                private route: ActivatedRoute) {
-                this.afAuth.authState.subscribe((auth) => {
-                this.authState = auth
-              });
-
-            }
+    constructor(private AuthlogService:AuthlogService,
+                private afs: AngularFirestore
+                ) {
+              }
 
 
 
             showposts () {
-              this.postDoc = this.afs.collection<any>('posts/', ref => ref.where('uid', '==', this.authState.uid))
+              this.postDoc = this.afs.collection<any>('posts/', ref => ref.where('uid', '==', this.AuthlogService.authState.uid))
               this.posts = this.postDoc.snapshotChanges()
                 .map(actions => {
                   return actions.map(action => {

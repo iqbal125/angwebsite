@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
-import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { AuthlogService } from '../shared/authlog.service';
-import { AngularFireAuth } from 'angularfire2/auth';
+
+
 
 @Component({
   selector: 'app-home',
@@ -13,12 +13,12 @@ export class HomeComponent {
 
 
 
-  constructor(private afAuth: AngularFireAuth,
-              private afs: AngularFirestore) { }
+  constructor(private AuthlogService: AuthlogService) { }
 
 
     hit( ) {
-      console.log(firebase.auth().currentUser)
+      console.log(this.AuthlogService.authState.uid)
+      console.log(this.AuthlogService.authenticated())
           }
 
 

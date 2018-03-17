@@ -7,7 +7,7 @@ import { AuthlogService } from '../shared/authlog.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
   constructor (private AuthlogService: AuthlogService) { }
 
@@ -16,7 +16,6 @@ export class HeaderComponent implements OnInit {
     console.log('It worked')
   }
 
-  ngOnInit() {
-  }
+
 
 }

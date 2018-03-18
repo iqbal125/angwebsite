@@ -1,43 +1,26 @@
-<div class="fluid-container">
-    <form (ngSubmit)="addproduct(f)" #f="ngForm" class="form-horizontal" id="user-data">
 
-      <div class="form-group">
-        <label class="control-label col-sm-2" for="username">Name</label>
-        <div class="col-sm-2">
-          <input class="form-control" type="text" ngModel name="name" >
-        </div>
-      </div>
+    <form (ngSubmit)="addproduct(f)" #f="ngForm" >
 
-      <div class="form-group">
-        <label class="control-label col-sm-2" for="username">Price</label>
-        <div class="col-sm-2">
-          <input class="form-control" type="text" ngModel name="price" >
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label class="control-label col-sm-2" for="username">Quantity</label>
-        <div class="col-sm-2">
-          <input class="form-control" type="text" ngModel name="quantity" >
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label class="control-label col-sm-2" for="username">Image URL</label>
-        <div class="col-sm-2">
-          <input class="form-control" type="text" ngModel name="ImgURL" >
-        </div>
+      <div class="md-form">
+        <label  for="name">Name</label>
+        <input type="text" ngModel name="name" class="form-control" mdbActive>
       </div>
 
 
-
-
-            <br>
-            <div class="form-group">
-              <div class="col-sm-offset-2 col-sm-10">
-                <button class="btn btn-primary"> Submit </button>
-              </div>
-            </div>
-
-          </form>
+      <div class="md-form">
+        <label for="price">Price</label>
+        <input type="text" ngModel name="price" class="form-control" mdbActive>
       </div>
+
+      <div class="md-form">
+        <label for="quantity">Quantity</label>
+        <input type="text" ngModel name="quantity" class="form-control" mdbActive>
+      </div>
+
+      <div class="md-form">
+        <label for="username">Image URL</label>
+        <input type="text" ngModel name="ImgURL" class="form-control" mdbActive>
+      </div>
+    <button class="btn btn-primary"> Submit </button>
+    
+  </form>

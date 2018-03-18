@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
@@ -12,8 +12,10 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule} from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+
+
 
 import { AuthlogService } from './shared/authlog.service';
 
@@ -35,6 +37,7 @@ import { ShowproductComponent } from './showproduct/showproduct.component';
 import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 import { SendmessageComponent } from './sendmessage/sendmessage.component';
 import { MessagesComponent } from './messages/messages.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -79,6 +82,7 @@ const appRoutes: Routes = [
     ShoppingcartComponent,
     SendmessageComponent,
     MessagesComponent,
+    FooterComponent,
 
   ],
 
@@ -91,18 +95,18 @@ const appRoutes: Routes = [
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
-    MatButtonModule,
-    // BrowserAnimationsModule,
+    MDBBootstrapModule.forRoot(),
+    BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes)
   ],
 
-
-  providers: [
-              AuthlogService
-              ],
+  schemas: [ NO_ERRORS_SCHEMA ],
 
 
-  bootstrap: [AppComponent]
+  providers: [ AuthlogService ],
+
+
+  bootstrap: [ AppComponent ]
 })
 
 

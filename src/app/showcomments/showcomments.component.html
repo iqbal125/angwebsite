@@ -1,25 +1,28 @@
+<br><br>
 
-<div>
-  <h2> Posts</h2>
-  <div><label>title: </label> {{ (posts | async)?.title }}</div>
-  <div><label>body: </label> {{ (posts | async)?.body }}</div>
-</div>
 
-<button  (click)="getpost();">Submit</button>
+  <h1 class="display-4">{{ (posts | async)?.title }}</h1>
+  <p>{{ (posts | async)?.body }}</p>
+
+
 
 <br>
 <br>
-<div class="fluid-container">
-    <form (ngSubmit)="addcomment(f)" #f="ngForm" class="form-horizontal" id="user-data">
+    <form (ngSubmit)="addcomment(f)" #f="ngForm" >
 
-      <textarea ngModel name="comment" cols="30" rows="10"> </textarea>
+      <textarea class="md-textarea" ngModel name="comment"> </textarea>
       <br>
-      <button>Add Comment</button>
+      <small>comment</small>
+      <br>
+      <br>
+      <button style="padding:10px:margin:10px;" class="btn btn-outline-primary btn-block waves-effect" mdbRippleRadius>Add Comment</button>
     </form>
+    <br><br>
 
-    <ul>
-      <li *ngFor="let comment of comments | async">
+<div></div>
+      <div *ngFor="let comment of comments | async">
         {{ comment.comment }}
-      </li>
-    </ul>
-  <button (click)="showcomments();"> Show Comment</button>
+        by
+        <strong>{{comment.name}}</strong>
+        <hr>
+      </div>

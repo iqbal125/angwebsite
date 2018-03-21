@@ -22,11 +22,13 @@ export interface PostID extends Post {
 @Component({
   selector: 'app-showposts',
   templateUrl: './showposts.component.html',
-  styleUrls: ['./showposts.component.css']
+
 })
-export class ShowpostsComponent  {
+export class ShowpostsComponent implements OnInit  {
 
 
+
+    date: string = null;
 
     private postDoc: AngularFirestoreCollection<any>;
     posts: Observable<any>;
@@ -39,7 +41,7 @@ export class ShowpostsComponent  {
 
 
 
-            showposts () {
+            ngOnInit () {
               this.postDoc = this.afs.collection<any>('posts/', ref => ref.where('uid', '==', this.AuthlogService.authState.uid))
               this.posts = this.postDoc.snapshotChanges()
                 .map(actions => {
@@ -49,13 +51,6 @@ export class ShowpostsComponent  {
                     return { id, ...data };
                   });
                 });
-              console.log(this.postDoc)
-              console.log(this.posts)
-
-
             }
-
-
-
 
 }

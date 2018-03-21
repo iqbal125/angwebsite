@@ -9,7 +9,7 @@ import { AuthlogService } from '../shared/authlog.service';
 @Component({
   selector: 'app-showproduct',
   templateUrl: './showproduct.component.html',
-  styleUrls: ['./showproduct.component.css']
+
 })
 
 

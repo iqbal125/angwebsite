@@ -1,33 +1,30 @@
-<form (ngSubmit)="finduser(f)" #f="ngForm" class="form-horizontal" id="user-data">
+<br>
+<br>
+
+<form (ngSubmit)="finduser(f); getcuruser()" #f="ngForm" >
 
   <input type="text" ngModel name="username">
   <br>
-  <!-- <input type="text" ngmodel name="messagetitle">
   <br>
-  <textarea ngModel name="messagebody" id="" cols="30" rows="10"></textarea>
-  <br> -->
-  <br>
-  <button>Select User</button>
+  <button class="btn btn-info" mdbRippleRadius>Select User</button>
 </form>
-
-
-
-<!--
-<div *ngFor="let user of user | async">
-  {{ user.displayName }}
-  <button (click)="sendmessage(user.uid)">Select User</button>
-</div> -->
-
-
-
-
-<div *ngFor="let user of user | async">
-  {{ user.displayName }}
 <br>
-  <input type="text"  #title name="title">
+<br>
+
+
+<div *ngFor="let user of user | async">
+
+<br>
+ <div class="md-form form-group">
+  <input class="form-control" type="text" #title name="title">
+  <small> title </small>
   <br>
-  <textarea ngModel #body name="messagebody" id="" cols="30" rows="10"></textarea>
+  <textarea ngModel #body name="messagebody" class="md-textarea" cols="30" rows="10"></textarea>
+  <br>
+  <small> message </small>
   <br>
   <br>
-    <button (click)="sendmessage(user.uid, title.value, body.value)">Sendmessage</button>
+    <button class="btn btn-primary" mdbRippleRadius (click)="sendmessage(user.displayName, user.uid, title.value, body.value)">Send Message</button>
+
+</div>
 </div>

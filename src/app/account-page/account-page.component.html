@@ -1,7 +1,45 @@
 
 
+<br><br>
 
-<button><a routerLink="/addfile">Upload File</a></button>
-<button><a routerLink="account/sendmessage">Send Message</a></button>
-<button><a routerLink="/addproduct">Add Product</a></button>
-<button><a routerLink="/showfile">Show Pic</a></button>
+
+
+<div class="btn-group-vertical"  role="group">
+
+
+
+
+  <button style="padding:10px:margin:10px;" class="btn btn-outline-primary btn-block waves-effect" mdbRippleRadius>
+  <a routerLink="/showposts"> My Posts</a>
+  </button>
+
+<hr>
+
+          <button style="padding:10px:margin:10px;" class="btn btn-outline-primary btn-block waves-effect" mdbRippleRadius>
+          <a routerLink="/addproduct">Add Product</a>
+          </button>
+
+<hr>
+            <button style="padding:10px:margin:10px;" class="btn btn-outline-primary btn-block waves-effect" mdbRippleRadius>
+            <a routerLink="/messages/{{uid}}">Messages</a>
+              </button>
+
+          <button style="padding:10px:margin:10px;" class="btn btn-outline-primary btn-block waves-effect" mdbRippleRadius>
+          <a routerLink="/sendmessage">Send Message</a>
+         </button>
+
+<hr>
+
+          <button style="padding:10px:margin:10px;" class="btn btn-outline-primary btn-block waves-effect" mdbRippleRadius>
+          <a routerLink="/showfile">My Uploads</a>
+          </button>
+
+          <button style="padding:10px:margin:10px;" class="btn btn-outline-primary btn-block waves-effect" mdbRippleRadius>
+          <a routerLink="/addfile">Upload File</a>
+          </button>
+
+
+
+
+
+      </div>

@@ -1,31 +1,26 @@
-<br>
-<div class="fluid-container">
-    <form (ngSubmit)="OnSignIn(f)" #f="ngForm" class="form-horizontal" id="user-data">
+
+
+<br><br>
+    <form (ngSubmit)="OnSignIn(f)" #f="ngForm" >
 
 
 
-      <div class="form-group">
-        <label class="control-label col-sm-2" for="email">email</label>
-        <div class="col-sm-2">
-          <input class="form-control" type="email" ngModel name="email" >
+      <div class="md-form">
+        <i class="fa fa-envelope prefix grey-text"></i>
+        <label  for="email">email</label>
+        <input  type="email" ngModel name="email" class="form-control" mdbActive>
         </div>
+
+      <div class="md-form">
+        <i class="fa fa-lock prefix grey-text"></i>
+        <label for="password">password</label>
+        <input type="password" ngModel name="password" class="form-control" mdbActive>
       </div>
 
-      <div class="form-group">
-        <label class="control-label col-sm-2" for="password">password</label>
-        <div class="col-sm-2">
-          <input class="form-control" type="password" ngModel name="password">
-        </div>
-      </div>
 
 
 
-      <br>
-      <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
           <button class="btn btn-primary"> Submit </button>
-        </div>
-      </div>
+
 
     </form>
-</div>

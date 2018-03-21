@@ -16,6 +16,10 @@ export class AuthlogService {
 
   authState: any = null;
 
+  private userInfoDoc: AngularFirestoreDocument<any>;
+  userInfo: Observable<any>;
+
+
   constructor(private afAuth: AngularFireAuth,
               private afs: AngularFirestore,
               private router: Router) {
@@ -25,11 +29,13 @@ export class AuthlogService {
               }
 
 
+
   authenticated() {
     if (this.authState) {
       return true;
     }
   }
+
 
  signup(email: string, password: string) {
   this.afAuth
@@ -50,7 +56,7 @@ login(email: string, password: string) {
     .signInWithEmailAndPassword(email, password)
     .then(value => {
       console.log('Nice, it worked!');
-      this.router.navigate(['/user/', value.uid]);
+      this.router.navigate(['/account']);
     })
     .catch(err => {
       console.log('Something went wrong:',err.message);

@@ -10,22 +10,16 @@ import { AuthlogService } from '../shared/authlog.service';
 @Component({
   selector: 'app-account-page',
   templateUrl: './account-page.component.html',
-  styleUrls: ['./account-page.component.css']
+
 })
 
 
 export class AccountPageComponent  {
 
+  uid: any = null;
 
-
-
-
-
-
-          constructor() {
-
+          constructor(private AuthlogService: AuthlogService) {
+            this.uid = this.AuthlogService.authState.uid
         }
 
-
-
-}
+      }

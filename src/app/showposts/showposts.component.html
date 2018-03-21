@@ -1,20 +1,17 @@
 
+<br><br>
 
 
 
-            <div *ngFor="let post of posts | async">
-              <h2> Posts</h2>
-              <div><label>title: </label><a routerLink='/posts/{{ post.id }}'>{{post.title}}</a></div>
-              <div>
-                <label>body: {{ post.body }}</label>
-              </div>
-            </div>
 
+            <div class="list-group" *ngFor="let post of posts | async">
+              <a routerLink='/posts/{{ post.id }}' class="list-group-item list-group-item-action flex-column align-items-start">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">{{post.title}}</h5>
+                    <small>{{post.date}}</small>
+                  </div>
+                </a>
+          </div>
 
-
-              <button (click)="showposts();" class="btn btn-primary"> Submit </button>
-
-            <br>
-            <br>
-
-            <button routerLink="/addpost">Add Post</button>
+<!-- Route to forum -->
+  <button routerLink="/addpost">Add Post</button>

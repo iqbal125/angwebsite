@@ -1,9 +1,27 @@
 
+
+<br>
+<br>
+
 <input type="file" (change)="uploadFile($event)">
 
-<div>{{ uploadPercent | async }}</div>
+<br><br>
+<div *ngIf="uploadPercent | async as pct">
+  <progress class="progress is-info" [value]="pct" max="100">
+  </progress>
+</div>
+
+
+
+
+<div *ngIf="downloadURL | async">
+  Uploaded!
+</div>
+
+
 
 <br>
 <br>
 
-<a [href]="downloadURL | async">{{ downloadURL | async }}</a>
+
+<a *ngIf="downloadURL | async" [href]="downloadURL | async" >View Image</a>

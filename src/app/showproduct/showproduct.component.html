@@ -1,9 +1,11 @@
+<br><br>
+
 <div>
   <h2> Product</h2>
   <div><label>Name: </label> {{ (product | async)?.name }}</div>
   <div><label>Price: </label> {{ (product | async)?.price }}</div>
   <div><label>Quantity </label> {{ (product | async)?.quantity }}</div>
-  <img src="{{(product | async)?.title}}" alt="">
+  <img src="{{(product | async)?.ImgURL}}" alt="Img not found">
 </div>
 
 <button  (click)="getproduct();">Submit</button>

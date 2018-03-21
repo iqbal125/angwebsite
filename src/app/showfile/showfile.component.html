@@ -1,6 +1,16 @@
 
+<br><br>
+<div *ngFor="let picURL of picURLs | async">
+    <img [src]="picURL" style="width:200px;height:300px;" alt="img Not found">
+    <br>
+    <hr>
+</div>
 
-<img [src]="profileUrl | async" />
+
+<div *ngIf="!picURLs">
+  No Images Found
+</div>
+
 <br>
 <br>
-<button (click)='showpic()'>submit</button>
+<button class="btn btn-primary" mdbActive (click)='getpicURL()'>Show Pics</button>

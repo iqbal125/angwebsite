@@ -16,8 +16,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 
-
 import { AuthlogService } from './shared/authlog.service';
+import { UserinfoService } from './shared/userinfo.service';
+
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -38,6 +39,8 @@ import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 import { SendmessageComponent } from './sendmessage/sendmessage.component';
 import { MessagesComponent } from './messages/messages.component';
 import { FooterComponent } from './footer/footer.component';
+import { ForumComponent } from './forum/forum.component';
+
 
 
 
@@ -55,9 +58,12 @@ const appRoutes: Routes = [
    { path: 'addfile', component: AddfileComponent},
    { path: 'showfile', component: ShowfileComponent},
    { path: 'addproduct', component: AddproductComponent},
-   { path:'products/:proid', component: ShowproductComponent},
-   { path:'store/shoppingcart/:id', component: ShoppingcartComponent},
-   { path: 'account/account/sendmessage', component: SendmessageComponent}
+   { path: 'products/:proid', component: ShowproductComponent},
+   { path: 'store/shoppingcart/:id', component: ShoppingcartComponent},
+   { path: 'sendmessage', component: SendmessageComponent},
+   { path: 'messages/:to', component: MessagesComponent},
+   { path: 'forum', component: ForumComponent}
+
   ];
 
 
@@ -83,6 +89,7 @@ const appRoutes: Routes = [
     SendmessageComponent,
     MessagesComponent,
     FooterComponent,
+    ForumComponent,
 
   ],
 
@@ -103,7 +110,9 @@ const appRoutes: Routes = [
   schemas: [ NO_ERRORS_SCHEMA ],
 
 
-  providers: [ AuthlogService ],
+  providers: [ AuthlogService,
+               UserinfoService
+  ],
 
 
   bootstrap: [ AppComponent ]

@@ -1,5 +1,11 @@
+<br><br>
+
+<h1 class="display-4"> Shop Products </h1>
+<hr>
+<br>
+
 <div *ngFor="let product of products | async">
-  <h2> Products</h2>
+<!-- put in card -->
   <div><label>Name: </label><a routerLink='/products/{{ product.id }}'>{{product.name}}</a></div>
   <div><label>Price: $</label>{{product.price}}</div>
   <div><label>Quantity: </label>{{product.quantity}}</div>
@@ -9,11 +15,9 @@
 <br>
 <br>
 
-  <div *ngIf='authState'>
-  <button (click)="showcart()"><a routerLink='shoppingcart/{{authState.uid}}'>Cart</a></button>
+  <div *ngIf='AuthlogService.authState'>
+    <button (click)="showcart()"><a routerLink='shoppingcart/{{AuthlogService.authState.uid}}'>Cart</a></button>
   </div>
 
 <br>
 <br>
-
-  <button (click)="showproducts();" class="btn btn-primary"> Submit </button>

@@ -1,3 +1,21 @@
-<p>
-  messages works!
-</p>
+
+
+<br>
+<br>
+<ul class="list-group" *ngFor="let message of messages | async">
+  <li class="list-group-item"><a (click)="displaymessagebody(message.title, message.body, message.from)">
+    {{message.title}} <strong> from </strong>  {{message.from}}
+  </a></li>
+</ul>
+
+<br>
+
+<br>
+
+
+<div *ngIf="displaymessagebody">
+  <h4> {{title}} </h4>
+  <strong>{{from}}</strong>
+  <hr>
+  <p> {{body}} </p>
+</div>

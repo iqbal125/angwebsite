@@ -10,7 +10,7 @@ import { AuthlogService } from '../shared/authlog.service';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+
 })
 
 
@@ -18,6 +18,7 @@ import { AuthlogService } from '../shared/authlog.service';
 export class UserComponent {
 
   Routeid: any = null;
+
 
   constructor(private AuthlogService: AuthlogService,
               private router: Router,
@@ -37,7 +38,7 @@ export class UserComponent {
         displayName: form.value.username,
         occupation: form.value.occupation
       }, {merge: true}).then(() => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/account']);
     });
 
     }

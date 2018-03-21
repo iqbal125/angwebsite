@@ -7,7 +7,7 @@ import { AuthlogService } from '../shared/authlog.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+
 })
 export class HomeComponent {
 
@@ -18,7 +18,7 @@ export class HomeComponent {
 
     hit( ) {
       console.log(this.AuthlogService.authState.uid)
-      console.log(this.AuthlogService.authenticated())
+      
           }
 
 

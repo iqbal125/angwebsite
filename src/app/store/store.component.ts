@@ -13,9 +13,9 @@ import { Observable } from 'rxjs/Observable';
 @Component({
   selector: 'app-store',
   templateUrl: './store.component.html',
-  styleUrls: ['./store.component.css']
+
 })
-export class StoreComponent {
+export class StoreComponent implements OnInit {
 
 
   private productDoc: AngularFirestoreCollection<any>;
@@ -53,7 +53,7 @@ export class StoreComponent {
 
 
 
-          showproducts () {
+          ngOnInit () {
             this.productDoc = this.afs.collection<any>('products/')
             this.products = this.productDoc.snapshotChanges()
               .map(actions => {

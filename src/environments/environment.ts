@@ -5,12 +5,5 @@
 
 export const environment = {
   production: false,
-  firebase: {
-    apiKey: "AIzaSyA85__gIA941frvb5bDB8neaorYptC_pNY",
-    authDomain: "tutorial-angular-89545.firebaseapp.com",
-    databaseURL: "https://tutorial-angular-89545.firebaseio.com",
-    projectId: "tutorial-angular-89545",
-    storageBucket: "tutorial-angular-89545.appspot.com",
-    messagingSenderId: "635502963108"
-  },
+
 };

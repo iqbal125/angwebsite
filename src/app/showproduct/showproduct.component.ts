@@ -13,7 +13,7 @@ import { AuthlogService } from '../shared/authlog.service';
 })
 
 
-export class ShowproductComponent {
+export class ShowproductComponent implements OnInit {
 
   private productDoc: AngularFirestoreDocument<any>;
   product: Observable<any>;
@@ -30,12 +30,13 @@ export class ShowproductComponent {
           }
 
 
-          getproduct () {
+          ngOnInit () {
 
             this.Routeid = this.route.snapshot.params['proid']
 
             this.productDoc = this.afs.doc('products/' + this.Routeid)
             this.product = this.productDoc.valueChanges()
+            console.log(this.product)
 
 
 

@@ -2,7 +2,7 @@
 
 <br>
 <br>
-
+<div class="container">
 <input type="file" (change)="uploadFile($event)">
 
 <br><br>
@@ -25,3 +25,4 @@
 
 
 <a *ngIf="downloadURL | async" [href]="downloadURL | async" >View Image</a>
+</div>

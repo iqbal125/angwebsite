@@ -1,11 +1,15 @@
+<div class="container">
 <br><br>
 
-<div>
-  <h2> Product</h2>
-  <div><label>Name: </label> {{ (product | async)?.name }}</div>
-  <div><label>Price: </label> {{ (product | async)?.price }}</div>
-  <div><label>Quantity </label> {{ (product | async)?.quantity }}</div>
-  <img src="{{(product | async)?.ImgURL}}" alt="Img not found">
-</div>
 
-<button  (click)="getproduct();">Submit</button>
+<div class="col-sm-10">
+<div class="card">
+  <img class="img-fluid" src="{{ (product | async)?.ImgURL }}" alt="Img not found">
+  <div class="card-body">
+    <h4 class="card-title">{{ (product | async)?.title }}</h4>
+    <p class="card-text"> <strong>${{ (product | async)?.price }}</strong></p>
+    <p class="card-text">{{ (product | async)?.description }}  </p>
+  </div>
+</div>
+</div>
+</div>

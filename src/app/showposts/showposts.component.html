@@ -1,4 +1,4 @@
-
+<div class="container">
 <br><br>
 
 
@@ -13,5 +13,8 @@
                 </a>
           </div>
 
-<!-- Route to forum -->
-  <button routerLink="/addpost">Add Post</button>
+
+<div *ngIf="!posts">
+  No Posts to Show
+</div>
+</div>

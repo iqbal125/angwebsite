@@ -21,8 +21,7 @@ export class StoreComponent implements OnInit {
   private productDoc: AngularFirestoreCollection<any>;
   products: Observable<any>;
 
-  private shopcartDoc: AngularFirestoreCollection<any>;
-  shopcart: Observable<any>;
+  counter: number = 0;
 
 
   constructor(private AuthlogService: AuthlogService,
@@ -32,24 +31,20 @@ export class StoreComponent implements OnInit {
 
           }
 
-          addtocart (productid, productname, productprice, productquantity, productImgURL) {
-            console.log(productid)
+          addtocart (productid, productname, productprice, productquantity, productdescription, productImgURL) {
             firebase.firestore().collection('shoppingcart/').doc(this.AuthlogService.authState.uid).collection('/products/').add({
               productid: productid,
-              name: productname,
+              title: productname,
               uid: this.AuthlogService.authState.uid,
               price: +productprice,
               quantity: +productquantity,
+              description: productdescription,
               ImgURL: productImgURL
-
-
           })
         }
 
-        showcart () {
-          this.shopcartDoc = this.afs.collection<any>('shoppingcart/' + this.AuthlogService.authState.uid + '/products')
-          this.shopcart = this.shopcartDoc.valueChanges()
-        }
+
+
 
 
 

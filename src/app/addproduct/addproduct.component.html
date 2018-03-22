@@ -1,4 +1,5 @@
 <br><br>
+<div class="container">
     <form (ngSubmit)="addproduct(f)" #f="ngForm" >
 
       <div class="md-form">
@@ -18,9 +19,15 @@
       </div>
 
       <div class="md-form">
-        <label for="username">Image URL</label>
+        <label for="quantity">Description</label>
+        <input type="text" ngModel name="description" class="form-control" mdbActive>
+      </div>
+
+      <div class="md-form">
+        <label for="ImgURL">Image URL</label>
         <input type="text" ngModel name="ImgURL" class="form-control" mdbActive>
       </div>
     <button class="btn btn-primary"> Submit </button>
 
   </form>
+</div>

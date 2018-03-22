@@ -4,6 +4,7 @@ import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection 
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { AuthlogService } from '../shared/authlog.service';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 
 
@@ -27,7 +28,7 @@ export interface PostID extends Post {
 export class ShowpostsComponent implements OnInit  {
 
 
-
+    authState: any = null;
     date: string = null;
 
     private postDoc: AngularFirestoreCollection<any>;
@@ -35,14 +36,17 @@ export class ShowpostsComponent implements OnInit  {
 
 
     constructor(private AuthlogService:AuthlogService,
-                private afs: AngularFirestore
-                ) {
+                private afs: AngularFirestore,
+                private afAuth: AngularFireAuth
+                ) { this.afAuth.authState.subscribe((auth) => {
+                 this.authState = auth
+               });
               }
 
 
 
             ngOnInit () {
-              this.postDoc = this.afs.collection<any>('posts/', ref => ref.where('uid', '==', this.AuthlogService.authState.uid))
+              this.postDoc = this.afs.collection<any>('posts/', ref => ref.where('uid', '==', this.authState.uid))
               this.posts = this.postDoc.snapshotChanges()
                 .map(actions => {
                   return actions.map(action => {

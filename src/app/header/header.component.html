@@ -15,9 +15,17 @@
               </li>
             </ul>
 
-              <ul class="navbar nav">
-              <li  class="nav-item active">
+          <div *ngIf="!AuthlogService.authState">
+            <a style="margin:15px;padding:15px" routerLink="/login"><i class="fas fa-shopping-cart"></i></a>
+          </div>
 
+            <div *ngIf="AuthlogService.authState">
+             <a style="margin:15px;padding:15px" (click)="showcart()" routerLink='shoppingcart/{{AuthlogService.authState.uid}}'><i class="fas fa-shopping-cart"></i></a>
+            </div>
+
+              <ul class="navbar nav">
+
+              <li  class="nav-item active">
                <a class="nav-link waves-light" mdbRippleRadius *ngIf="!AuthlogService.authenticated()" routerLink="/signup"> Sign Up</a>
                </li>
                <li class="nav-item active">

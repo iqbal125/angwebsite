@@ -1,3 +1,4 @@
+<div class="container">
 <br><br>
 
 <h1 class="display-4"> Shop Products </h1>
@@ -5,19 +6,21 @@
 <br>
 
 <div *ngFor="let product of products | async">
-<!-- put in card -->
-  <div><label>Name: </label><a routerLink='/products/{{ product.id }}'>{{product.name}}</a></div>
-  <div><label>Price: $</label>{{product.price}}</div>
-  <div><label>Quantity: </label>{{product.quantity}}</div>
-  <img src="product.ImgURL" alt="">
-  <button (click)="addtocart(product.id, product.name, product.price, product.quantity, product.ImgURL)">Add to Cart</button>
-</div>
-<br>
-<br>
-
-  <div *ngIf='AuthlogService.authState'>
-    <button (click)="showcart()"><a routerLink='shoppingcart/{{AuthlogService.authState.uid}}'>Cart</a></button>
+  <div class="col-sm-8">
+  <div style="cursor: pointer;" routerLink="products/{{product.id}}" class="card">
+    <img class="img-fluid" src="{{product.ImgURL}}" alt="Img not found">
+    <div class="card-body">
+      <h4 class="card-title">{{product.title}}</h4>
+      <p class="card-text"> <strong>${{product.price}}</strong></p>
+      <p class="card-text">{{product.description}}</p>
+      <div *ngIf='AuthlogService.authState'>
+        <button class="btn btn-success waves-light" mdbRippleRadius
+        (click)="addtocart(product.id, product.title, product.price, product.quantity, product.description, product.ImgURL)">Add to Cart
+      </button>
+      </div>
+    </div>
   </div>
+</div>
 
 <br>
-<br>
+</div>

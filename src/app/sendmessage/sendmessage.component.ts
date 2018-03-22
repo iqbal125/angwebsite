@@ -51,16 +51,14 @@ export class SendmessageComponent  {
 
 
     sendmessage(username, userid, title, body) {
-      console.log(userid)
-      console.log(title)
-      console.log(body)
-
       firebase.firestore().collection('users/').doc(userid).collection('/messages/').add({
         to: username,
         title: title,
         body: body,
         from: this.CurUsername
-      });
+      }).then(() => {
+        this.router.navigate(['/account']);
+    });
     }
 
 }

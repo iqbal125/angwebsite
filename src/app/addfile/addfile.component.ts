@@ -5,6 +5,7 @@ import { AuthlogService } from '../shared/authlog.service';
 import * as firebase from 'firebase';
 
 
+
 @Component({
   selector: 'app-addfile',
   templateUrl: './addfile.component.html',
@@ -45,7 +46,7 @@ export class AddfileComponent  {
       firebase.firestore().collection('users/').doc(this.AuthlogService.authState.uid).collection('/picUrls/').add({
         filepath: url
       })
-    })
+    });
 
   }
 

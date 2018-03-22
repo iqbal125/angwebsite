@@ -1,12 +1,16 @@
+<div class="container">
 <br><br>
   <h2> Cart</h2>
+  <br>
   <div *ngFor="let shopproduct of shopproducts | async">
-  <div><label>name: </label> {{ shopproduct.name }}</div>
-  <div><label>price: </label> {{ shopproduct.price }}</div>
-  <br>
-  <br>
+  <div style="cursor: pointer;" routerLink="/store/products/{{shopproduct.productid}}" class="col-md-6">
+   <img style="width:90px;height:90px" src="{{ shopproduct.ImgURL }}" alt="img Not Found">
+  <span style="margin-right:30px;margin-left:15px;">{{ shopproduct.title }}</span>
+  <i class="fas fa-dollar-sign"></i>{{ shopproduct.price }}
+
+  <hr>
+</div>
 </div>
 
-
-
-<button (click)="showcart()">show cart</button>
+<br>
+</div>

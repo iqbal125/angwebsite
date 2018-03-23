@@ -13,33 +13,34 @@ import { AngularFireAuth } from 'angularfire2/auth';
 })
 export class ShoppingcartComponent implements OnInit {
 
-
   authState: any = null;
-
 
   private shopproductDocs: AngularFirestoreCollection<any>;
   shopproducts: Observable<any>;
 
 
-
   constructor(private AuthlogService: AuthlogService,
-              private afs: AngularFirestore,
-              private afAuth: AngularFireAuth,
-            ) {this.afAuth.authState.subscribe((auth) => {
-              this.authState = auth
-            });
-          }
+    private afs: AngularFirestore,
+    private afAuth: AngularFireAuth,
+  ) {
+    this.afAuth.authState.subscribe((auth) => {
+      this.authState = auth
+    });
+  }
 
-
-ngOnInit () {
-
-  this.shopproductDocs = this.afs.collection('shoppingcart/' + this.authState.uid + '/products/', ref => ref.where('uid', '==', this.AuthlogService.authState.uid))
-  this.shopproducts = this.shopproductDocs.valueChanges()
-
-
+  deletecartitem(productid) {
+   firebase.firestore().doc('shoppingcart/' + this.authState.uid + '/products/' + productid).delete()
 }
 
-
-
+  ngOnInit() {
+    this.shopproductDocs = this.afs.collection('shoppingcart/' + this.authState.uid + '/products/', ref => ref.where('uid', '==', this.AuthlogService.authState.uid))
+    this.shopproducts = this.shopproductDocs.snapshotChanges()
+      .map(actions => {
+        return actions.map(action => {
+          const data = action.payload.doc.data();
+          const id = action.payload.doc.id;
+          return { id, ...data };
+        });
+      });
 
 }

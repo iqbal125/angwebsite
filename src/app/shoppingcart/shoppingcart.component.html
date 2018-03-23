@@ -1,16 +1,15 @@
 <div class="container">
-<br><br>
+  <br><br>
   <h2> Cart</h2>
   <br>
   <div *ngFor="let shopproduct of shopproducts | async">
-  <div style="cursor: pointer;" routerLink="/store/products/{{shopproduct.productid}}" class="col-md-6">
-   <img style="width:90px;height:90px" src="{{ shopproduct.ImgURL }}" alt="img Not Found">
-  <span style="margin-right:30px;margin-left:15px;">{{ shopproduct.title }}</span>
-  <i class="fas fa-dollar-sign"></i>{{ shopproduct.price }}
-
-  <hr>
-</div>
-</div>
-
-<br>
+    <div style="cursor: pointer;" routerLink="/store/products/{{shopproduct.productid}}" class="col-md-6">
+      <img style="width:90px;height:90px" src="{{ shopproduct.ImgURL }}" alt="img Not Found">
+      <span style="margin-right:30px;margin-left:15px;">{{ shopproduct.title }}</span>
+      <i class="fas fa-dollar-sign"></i>{{ shopproduct.price }}
+    </div>
+      <button style="" class="btn btn-danger" mdbRadiusRipple (click)="deletecartitem(shopproduct.id)">Delete</button>
+      <hr>
+  </div>
+  <br>
 </div>
